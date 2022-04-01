@@ -8,8 +8,8 @@
 .NOTES
     Author:  Ladislav Grulich (LaGr77)
     Create:  25.03.2022
-    Edited:  25.03.2022
-    Version: 0.1.0
+    Edited:  01.04.2022
+    Version: 0.1.1
 #>
 
 ## zapq path
@@ -55,7 +55,7 @@ if ($_PATH_OUT.EndsWith("\") ) {
 ## Filename
 do {
     $_FILENAME = Read-Host "Archive filename";
-} while( ($_FILENAME -match "[^a-zA-Z0-9]") -$false )
+} while( ($_FILENAME -match "[^a-zA-Z0-9_]") -$false )
 
 ## Password
 do {
@@ -93,8 +93,8 @@ Invoke-Expression $_RUN | Tee-Object "$_PATH_OUT\$_FILENAME.log" -Append;
 # SIG # Begin signature block
 # MIIGiwYJKoZIhvcNAQcCoIIGfDCCBngCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUEC7EAIF0KOoRHexJk8715Gig
-# X/ugggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUIhSzshe3QNs4ZCVgfRpSqsku
+# xoqgggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
 # AQUFADBwMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxGDAWBgoJkiaJk/IsZAEZFghk
 # ZHBvcnViYTEXMBUGA1UEAwwOZGRwb3J1YmEubG9jYWwxJDAiBgkqhkiG9w0BCQEW
 # FWxncnVsaWNoQGRzcG9ydWJhLmNvbTAeFw0yMDA2MTcwODEwMzNaFw0zMDA2MTcw
@@ -119,11 +119,11 @@ Invoke-Expression $_RUN | Tee-Object "$_PATH_OUT\$_FILENAME.log" -Append;
 # DmRkcG9ydWJhLmxvY2FsMSQwIgYJKoZIhvcNAQkBFhVsZ3J1bGljaEBkc3BvcnVi
 # YS5jb20CEFYhh52Hu7yaRlIKQKl9wf8wCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcC
 # AQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYB
-# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFPhpIXwr0Mb0
-# 74PauYbKbIn6Pyy1MA0GCSqGSIb3DQEBAQUABIIBAG7hfNmRVLe4yDpbSECPvXsO
-# BIEkQc0qHR/PbiQfQQs3Ywok2mPjY3ZsW5HHxTUVCKHxwLTefRL3+hWXNYSbtF2E
-# sQlYS/mUEb7T+xYeZc2YtgQSR7d/FIvzxy/X48vKayZauWZEKv3Z8FUqJY6qCJY7
-# kS4mRRV5V/BOIpN6XsR6Sk6wOjtd54yl82q0jCOi/yf6G/zTIzNb+FAdzBuaE14O
-# jobbQ1vsEPGYAuZZJlIOeko2aqUh39V+pi5IACmQrb9dyH6zXO54tKE0tJxJ5IUC
-# kkpdEIrqeSK6LxB1oqamfyAwgAMTs+9bdqNjs8O/4DM4NdhpbQMPnu2L3xO++yU=
+# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFGIZ5VTD/9Ob
+# 3jJqqv4aEHZvhsgLMA0GCSqGSIb3DQEBAQUABIIBAC3nJeaYxYFeIk1JNAAbUUQc
+# fZlsu2bb1OxLjTyato5AWVkfprWylah0Yq0bB35acmV+pobmLZ5MFPKCb59KLKvo
+# eNJKaWarAIc5JsUjZ5g20kSb2iivZHzasRoqWhOlEqPIuv+BfE982tGpUgG5YXkm
+# 1YwpekDy3jgWEvTyuKena69U2duhbjgwW8vWKz1iWcGzJrSNFrmaFK6wd2On8H9y
+# 8YezKt2UsJ2SeydIowP2ybVGeAIybx4Glo+mN0RmRvR05Iy4RTN60mdWZcm6A4lo
+# b8cGkZYR6vZ5JSxi7tYiq2MwgxDoq6/Tno1pcgkyK4A3VNDRp/lEt53LQjknDWs=
 # SIG # End signature block
