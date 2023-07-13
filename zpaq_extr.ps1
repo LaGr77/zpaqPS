@@ -1,15 +1,15 @@
 <#
 .SYNOPSIS
-    Extracted created archive by zpaq
+    Extract created archive by zpaq
 .DESCRIPTION
-    Extracted created archive by zpaq
+    Extract created archive by zpaq
 .EXAMPLE
     .\zpaq_extr.ps1
 .NOTES
     Author:  Ladislav Grulich (LaGr77)
     Create:  25.03.2022
-    Edited:  25.03.2022
-    Version: 0.1.0
+    Edited:  13.07.2023
+    Version: 0.1.1
 #>
 
 ## zapq path
@@ -69,8 +69,8 @@ Invoke-Expression $_RUN | Tee-Object "$_PATH_IN\$_FILENAME.log" -Append;
 # SIG # Begin signature block
 # MIIGiwYJKoZIhvcNAQcCoIIGfDCCBngCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU6HY9P8Icv93gEvDKauBNrq6W
-# RH2gggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUQ9eHdn2W00ExtQLywXuuS2pH
+# BaegggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
 # AQUFADBwMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxGDAWBgoJkiaJk/IsZAEZFghk
 # ZHBvcnViYTEXMBUGA1UEAwwOZGRwb3J1YmEubG9jYWwxJDAiBgkqhkiG9w0BCQEW
 # FWxncnVsaWNoQGRzcG9ydWJhLmNvbTAeFw0yMDA2MTcwODEwMzNaFw0zMDA2MTcw
@@ -95,11 +95,11 @@ Invoke-Expression $_RUN | Tee-Object "$_PATH_IN\$_FILENAME.log" -Append;
 # DmRkcG9ydWJhLmxvY2FsMSQwIgYJKoZIhvcNAQkBFhVsZ3J1bGljaEBkc3BvcnVi
 # YS5jb20CEFYhh52Hu7yaRlIKQKl9wf8wCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcC
 # AQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYB
-# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFHCzMAx7NOtM
-# RHU0pDOAJfJj/nUGMA0GCSqGSIb3DQEBAQUABIIBAEjC9f8MPoLUSENMKvO/3RrG
-# 4L91PQoe+lbYQ6UACJTB2PoRNTeY/GMwQA1/mhAxMB5MfWTIjJR2NQEDU5QhZLNm
-# CF3TxHoteNCMKSV1phcEsBl7rGZBks0RN5B2SIUvvnQt7nvJCQ4KwB31RwTQax7n
-# kc1LmoG+iY6rogEcre6gqjLAV45hCpebbkqhDL4ftCPNvYkW+SMC1gpycIiObyL8
-# XNmXUBeI9q3nHB79O3uwyWU4+u480WYfvoyahGk3QKeb2eVlnj/WQ/C799LUWYKr
-# ymjsJmZuiM84hmgjf7nRqt3Qb7hz2telS2I6sZlnDmYmjRYrxCH7RABLMQ+dxRA=
+# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFKdc+C7XZyL8
+# sYMF4KGPrvCV+wkrMA0GCSqGSIb3DQEBAQUABIIBAH2qWBydKgxKdNII54aZQKDs
+# jMWU4ZjhttIDGunDtZqlcm0TO7Vb/5rQEr5WiYP1rcrp59l0mXXCvtKjVdbzL9iz
+# senAPdr1Xbhy/H2Jcl6Q2Duus23vlFOEIn2AFo6W7oSw4q+0ZOBEayC0fp3S+1nI
+# 5S0fVDP85eyRpRZvb6xJefF2v2DkUOBxCgqON4gPkRODQ859n+SI2EBBT990bbBl
+# y7q2KAdF380kTDiwXQ/jwfDAzSSxETf/FDUVz1sjfbTMXaKclGH/WN5qKIcr7LFz
+# 3W/ksrKLQsJqE5FjGbJEOB8Ao7ZSubmWLn+V6MMIvUEl+uPZ4lLOmXEFuZriHmM=
 # SIG # End signature block

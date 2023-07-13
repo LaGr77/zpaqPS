@@ -1,54 +1,63 @@
 <#
 .SYNOPSIS
-    Create backup by zpaq
+    Create incremental backup by zpaq
 .DESCRIPTION
-    Extracted created archive by zpaq
+    Create incremental backup by zpaq
 .EXAMPLE
     .\zpaq_extr.ps1
 .NOTES
     Author:  Ladislav Grulich (LaGr77)
     Create:  18.01.2023
-    Edited:  19.01.2023
-    Version: 0.0.2
+    Edited:  13.07.2023
+    Version: 0.1.0
 #>
-
-
-$_TEST_PATH_OUT = "\\NAS\Backup\$([Environment]::UserName)";
-$_TEST_ZPAQ = "\\w2012dc\NETLOGON\zpaq715\zpaq64.exe";
+ 
+## \\192.168.10.3\Backup\ladislav.grulich\NB5012328\
+$_PATH_OUT = "\\NAS\Backup\$([Environment]::UserName)\$env:COMPUTERNAME";
+$_ZPAQ = "\\w2012dc\NETLOGON\zpaq715\zpaq64.exe";
+## psw
+$_PSW_TMP = Get-Content "\\W2012dc\NETLOGON\SKRIPTY\PasswordEncryptedFiles.txt" | ConvertTo-SecureString -Key (Get-Content ("\\W2012dc\NETLOGON\SKRIPTY\aes.key"));
 
 # documents
-$_TEST_FILE_OUT = "docu????.zpaq"; 
-$_TEST_FILE_OUT_T = "docu0000.log";
-$_TEST_PATH_IN = [Environment]::GetFolderPath("MyDocuments");
-$_TEST_RUN = "$_TEST_ZPAQ add $_TEST_PATH_OUT\$_TEST_FILE_OUT $_TEST_PATH_IN -method 1";
-Invoke-Expression $_TEST_RUN | Tee-Object $_TEST_PATH_OUT\$_TEST_FILE_OUT_T;
+$_FILE_OUT = "docu????.zpaq"; 
+$_FILE_OUT_T = "docu0000.log";
+$_PATH_IN = [Environment]::GetFolderPath("MyDocuments");
+$_RUN = "$_ZPAQ add $_PATH_OUT\$_FILE_OUT $_PATH_IN -method 1 -key $([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($_PSW_TMP)))";
+Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
 
 # Desktop
-$_TEST_FILE_OUT = "desk????.zpaq"; 
-$_TEST_FILE_OUT_T = "desk0000.log";
-$_TEST_PATH_IN = [Environment]::GetFolderPath("Desktop");
-$_TEST_RUN = "$_TEST_ZPAQ add $_TEST_PATH_OUT\$_TEST_FILE_OUT $_TEST_PATH_IN -method 1";
-Invoke-Expression $_TEST_RUN | Tee-Object $_TEST_PATH_OUT\$_TEST_FILE_OUT_T;
+$_FILE_OUT = "desk????.zpaq"; 
+$_FILE_OUT_T = "desk0000.log";
+$_PATH_IN = [Environment]::GetFolderPath("Desktop");
+$_RUN = "$_ZPAQ add $_PATH_OUT\$_FILE_OUT $_PATH_IN -method 1 -key $([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($_PSW_TMP)))";
+Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
 
 # MyVideos
-$_TEST_FILE_OUT = "vide????.zpaq"; 
-$_TEST_FILE_OUT_T = "vide0000.log";
-$_TEST_PATH_IN = [Environment]::GetFolderPath("MyVideos");
-$_TEST_RUN = "$_TEST_ZPAQ add $_TEST_PATH_OUT\$_TEST_FILE_OUT $_TEST_PATH_IN -method 1";
-Invoke-Expression $_TEST_RUN | Tee-Object $_TEST_PATH_OUT\$_TEST_FILE_OUT_T;
+$_FILE_OUT = "vide????.zpaq"; 
+$_FILE_OUT_T = "vide0000.log";
+$_PATH_IN = [Environment]::GetFolderPath("MyVideos");
+$_RUN = "$_ZPAQ add $_PATH_OUT\$_FILE_OUT $_PATH_IN -method 1 -key $([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($_PSW_TMP)))";
+Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
 
 # MyPictures
-$_TEST_FILE_OUT = "pict????.zpaq"; 
-$_TEST_FILE_OUT_T = "pict0000.log";
-$_TEST_PATH_IN = [Environment]::GetFolderPath("MyPictures");
-$_TEST_RUN = "$_TEST_ZPAQ add $_TEST_PATH_OUT\$_TEST_FILE_OUT $_TEST_PATH_IN -method 1";
-Invoke-Expression $_TEST_RUN | Tee-Object $_TEST_PATH_OUT\$_TEST_FILE_OUT_T;
-   
+$_FILE_OUT = "pict????.zpaq"; 
+$_FILE_OUT_T = "pict0000.log";
+$_PATH_IN = [Environment]::GetFolderPath("MyPictures");
+$_RUN = "$_ZPAQ add $_PATH_OUT\$_FILE_OUT $_PATH_IN -method 1 -key $([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($_PSW_TMP)))";
+Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
+
+# User
+$_FILE_OUT = "user????.zpaq"; 
+$_FILE_OUT_T = "user.log";
+$_PATH_IN = "$env:USERPROFILE\*.doc $env:USERPROFILE\*docx $env:USERPROFILE\*.pdf $env:USERPROFILE\*.txt $env:USERPROFILE\*.xls $env:USERPROFILE\*.xlsx $env:USERPROFILE\*.xlm"
+$_RUN = "$_ZPAQ add $_PATH_OUT\$_FILE_OUT $_PATH_IN -method 1 -key $([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($_PSW_TMP)))";
+Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
+
 # SIG # Begin signature block
 # MIIGiwYJKoZIhvcNAQcCoIIGfDCCBngCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUnAijluKPx+2ibaSzF66yvylu
-# q/mgggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU0vItfRp8KxmbB937dkMTRSmX
+# Q/+gggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
 # AQUFADBwMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxGDAWBgoJkiaJk/IsZAEZFghk
 # ZHBvcnViYTEXMBUGA1UEAwwOZGRwb3J1YmEubG9jYWwxJDAiBgkqhkiG9w0BCQEW
 # FWxncnVsaWNoQGRzcG9ydWJhLmNvbTAeFw0yMDA2MTcwODEwMzNaFw0zMDA2MTcw
@@ -73,11 +82,11 @@ Invoke-Expression $_TEST_RUN | Tee-Object $_TEST_PATH_OUT\$_TEST_FILE_OUT_T;
 # DmRkcG9ydWJhLmxvY2FsMSQwIgYJKoZIhvcNAQkBFhVsZ3J1bGljaEBkc3BvcnVi
 # YS5jb20CEFYhh52Hu7yaRlIKQKl9wf8wCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcC
 # AQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYB
-# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFDd6JjNr76Nv
-# uFchJ0BOesrwHSIAMA0GCSqGSIb3DQEBAQUABIIBAFgHa0JJaPRC8SNzzT2+W0rt
-# rUygj+2qoHccOZ7h7j48/7TqR8Y4y61xX3dlXYYGhkNXsGO6r+/bIsnM6XeRVGm7
-# 7VV8N1mQUGL5xeFcZMUniRl8qCzKRnw0qZXblgQOh6pH0TdMUNe1ENvTbDcecG3R
-# tvnrdxzd02kQANVY2tOVtXl5nZ1g/fuHBU43Iy22R622GZ5GUNJVmrY+2VrNamCg
-# PSEJFF0+LV5uqxQ0g+6kA5vubQRubP9DAX7ALArl7yGNHY0IC411ubZ4g1MDm12y
-# +NOSQosyYBPJzeVsiOq60621ZpjW95njfofEgovRN4Uio4qVNxsM6fj/9Vqhz0o=
+# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFAfG5rE252WR
+# jfU4cbu4ESp/97JHMA0GCSqGSIb3DQEBAQUABIIBAFECSE33JOM3hw/aYbs+lQNY
+# KQCqK8bGZ2ocP52S79LAga/X8WaioA2gWmTWvkQHyPnumTmBOeQygJjytDekbNMU
+# DI6gN7LQpL6TDJhtOuO6yJycDNZmBGyRD6rLPiilTMLFa6AKDVHe6+ai+n7/VkAm
+# cJEYWa7Sroq65oXDJC39o9uIkUjdweOMjWCLmKNxt2Mhws+HLM2A3nqiiSbwRi+/
+# Iyg+ZtGrN//9BxPD/0LDUrNy2PlUApRmoOBMrXh/tuhVAB5achVaK4X9TE4HnN5E
+# sNehB8f8Vu57eFUcn8ks6lYtrsuLyC8uRnAutsh1L9r42vqqt3hpOUeL5Kn1uWk=
 # SIG # End signature block
