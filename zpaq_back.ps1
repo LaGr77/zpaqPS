@@ -8,15 +8,15 @@
 .NOTES
     Author:  Ladislav Grulich (LaGr77)
     Create:  18.01.2023
-    Edited:  13.07.2023
-    Version: 0.1.0
+    Edited:  12.10.2024
+    Version: 0.1.1
 #>
  
 ## \\192.168.10.3\Backup\ladislav.grulich\NB5012328\
 $_PATH_OUT = "\\NAS\Backup\$([Environment]::UserName)\$env:COMPUTERNAME";
-$_ZPAQ = "\\w2012dc\NETLOGON\zpaq715\zpaq64.exe";
+$_ZPAQ = "\\w2016dc\NETLOGON\zpaq715\zpaq64.exe";
 ## psw
-$_PSW_TMP = Get-Content "\\W2012dc\NETLOGON\SKRIPTY\PasswordEncryptedFiles.txt" | ConvertTo-SecureString -Key (Get-Content ("\\W2012dc\NETLOGON\SKRIPTY\aes.key"));
+$_PSW_TMP = Get-Content "\\w2016dc\NETLOGON\SKRIPTY\PasswordEncryptedFiles.txt" | ConvertTo-SecureString -Key (Get-Content ("\\w2016dc\NETLOGON\SKRIPTY\aes.key"));
 
 # documents
 $_FILE_OUT = "docu????.zpaq"; 
@@ -56,8 +56,8 @@ Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
 # SIG # Begin signature block
 # MIIGiwYJKoZIhvcNAQcCoIIGfDCCBngCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU0vItfRp8KxmbB937dkMTRSmX
-# Q/+gggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU31z1NikEsWggP0qy+opzO6Ax
+# BA6gggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
 # AQUFADBwMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxGDAWBgoJkiaJk/IsZAEZFghk
 # ZHBvcnViYTEXMBUGA1UEAwwOZGRwb3J1YmEubG9jYWwxJDAiBgkqhkiG9w0BCQEW
 # FWxncnVsaWNoQGRzcG9ydWJhLmNvbTAeFw0yMDA2MTcwODEwMzNaFw0zMDA2MTcw
@@ -82,11 +82,11 @@ Invoke-Expression $_RUN | Tee-Object $_PATH_OUT\$_FILE_OUT_T;
 # DmRkcG9ydWJhLmxvY2FsMSQwIgYJKoZIhvcNAQkBFhVsZ3J1bGljaEBkc3BvcnVi
 # YS5jb20CEFYhh52Hu7yaRlIKQKl9wf8wCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcC
 # AQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYB
-# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFAfG5rE252WR
-# jfU4cbu4ESp/97JHMA0GCSqGSIb3DQEBAQUABIIBAFECSE33JOM3hw/aYbs+lQNY
-# KQCqK8bGZ2ocP52S79LAga/X8WaioA2gWmTWvkQHyPnumTmBOeQygJjytDekbNMU
-# DI6gN7LQpL6TDJhtOuO6yJycDNZmBGyRD6rLPiilTMLFa6AKDVHe6+ai+n7/VkAm
-# cJEYWa7Sroq65oXDJC39o9uIkUjdweOMjWCLmKNxt2Mhws+HLM2A3nqiiSbwRi+/
-# Iyg+ZtGrN//9BxPD/0LDUrNy2PlUApRmoOBMrXh/tuhVAB5achVaK4X9TE4HnN5E
-# sNehB8f8Vu57eFUcn8ks6lYtrsuLyC8uRnAutsh1L9r42vqqt3hpOUeL5Kn1uWk=
+# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFFUvh0EBfHQn
+# CiUXuirVStzJWHnlMA0GCSqGSIb3DQEBAQUABIIBABujCAnTLXeRgQWtFyfN84AY
+# MLJ8ulV62osERZJfJWWTdtssSmd+Pv0OqV7H7flNKcJuHiWGseq19+jugaFAIg/3
+# wJvkkflgl/TDzsZZYh04T9HITwUXVEqOzFDj/CBAglnR35TCLLYB3kILPUrqOud0
+# EqinWJV5zvErfqkE9e7PLmmk+irrsh9L6vM6OULvUlK0Q4o96TN9T3cKlGEvpixY
+# c4iexu6oRqSlipUcipbS3N5eP2bL6CruR7+nxhG9n0sAbKNzrLt8Ki0thY80M7af
+# qiUrNx/qJMIlLw2CTzkS41vfJe1pwvKCQuIrgACOXZIrEzMI/+1uOmNJV6Hjks8=
 # SIG # End signature block

@@ -8,8 +8,8 @@
 .NOTES
     Author:  Ladislav Grulich (LaGr77)
     Create:  13.07.2023
-    Edited:  13.07.2023
-    Version: 0.1.0
+    Edited:  12.10.2024
+    Version: 0.1.1
 #>
 
 ## zapq path
@@ -68,7 +68,7 @@ if ($_PATH_OUT_TYPE -eq $true) {
 }
 
 ## psw
-$_PSW_TMP = Get-Content "\\W2012dc\NETLOGON\SKRIPTY\PasswordEncryptedFiles.txt" | ConvertTo-SecureString -Key (Get-Content ("\\W2012dc\NETLOGON\SKRIPTY\aes.key"));
+$_PSW_TMP = Get-Content "\\w2016dc\NETLOGON\SKRIPTY\PasswordEncryptedFiles.txt" | ConvertTo-SecureString -Key (Get-Content ("\\w2016dc\NETLOGON\SKRIPTY\aes.key"));
 
 ## uncompress
 ## desk
@@ -139,8 +139,8 @@ if ($_PATH_OUT_TYPE -eq $true) {
 # SIG # Begin signature block
 # MIIGiwYJKoZIhvcNAQcCoIIGfDCCBngCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUPjitKD8SCXnpNehmEY2D5ZmT
-# wDWgggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU7Mco3iX+CXHH3kdnPuskkix5
+# q4KgggPPMIIDyzCCArOgAwIBAgIQViGHnYe7vJpGUgpAqX3B/zANBgkqhkiG9w0B
 # AQUFADBwMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxGDAWBgoJkiaJk/IsZAEZFghk
 # ZHBvcnViYTEXMBUGA1UEAwwOZGRwb3J1YmEubG9jYWwxJDAiBgkqhkiG9w0BCQEW
 # FWxncnVsaWNoQGRzcG9ydWJhLmNvbTAeFw0yMDA2MTcwODEwMzNaFw0zMDA2MTcw
@@ -165,11 +165,11 @@ if ($_PATH_OUT_TYPE -eq $true) {
 # DmRkcG9ydWJhLmxvY2FsMSQwIgYJKoZIhvcNAQkBFhVsZ3J1bGljaEBkc3BvcnVi
 # YS5jb20CEFYhh52Hu7yaRlIKQKl9wf8wCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcC
 # AQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYB
-# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFOyrv7dRcyp3
-# pannHSDpN74lv8+cMA0GCSqGSIb3DQEBAQUABIIBAH2fT/dH/+XTlu8d6DQwH6e2
-# CWk6jlEgxbmRfwJpF5W1K/8O2pjc9KXES8xjXk9Iqyx00VQXq5H6JkpkXR5rzqzx
-# sAIbXP0w2pVIMQsKbU8WW0PNfYl17Z3rxtWfiIVTuv2RnQ5FzkSC62nKYmATUMc+
-# lQWRR2InSDqQaAXvqM87rSxWTd8j+wcnkNs3DpMrdIDZtebesdfXxeSWMuXLWVBj
-# vZYUqyVDaljk8+BbyOB5YJXYsQLOpLBsXI4n1ylHOaAqA+5PwSzu55Yxy9ItqSXp
-# RbNbMTrjdy0+lBCR2eyhM7ChuiKyDqiJ4CMP0obDKlNoG2s97tIJoksAAJTY6ZE=
+# BAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFPOhEHY0x2wq
+# kI0w75PjmhpIMlwlMA0GCSqGSIb3DQEBAQUABIIBAFkrJuXCHeQimFPqJJDODI/v
+# S90OJEZBDmHZpTR/IH6sZcRi4Ird68Aua/XmCNUMhm/opNpkuAvINA4o8i0FUoN9
+# a51OxhfH82i5b7aBWalAS9x6NGTgJWvvpL/mHF5vuH7kBU229TBQIXyD5sLd8d/G
+# rQCXGrf8mcxlzvL1Oc71HRhy4G1gjzbcNQbnnTd0aklU0XyjLFOzDrJOUCMM6EtS
+# tgjHZN3ZUv1/f+XgbuDJ3V+4QgC7j7jSxPnTZSxEvcNEPqiQT8+XhDOCV7Oce6Uj
+# 5hBCgkERSZJ39cn24Cqh6ou/rndXzxM7ME8LQbRgZFfBPdnbxKclA1DPpDHzMM8=
 # SIG # End signature block
